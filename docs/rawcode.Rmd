@@ -4,9 +4,9 @@
 <br>
 
 
-To access the source code for the Geomorphic Approach, users are directed to the following [GitHub repository](https://github.com/SGronsdahl/GeomorphicApproach). 
+To access the source code for GIFT users are directed to the following [GitHub repository](https://github.com/SGronsdahl/GIFT). 
 
-To access the source code for the UBC Regime Model component of the Geomorphic Approach, users are directed to Brett Eaton's [website](https://blogs.ubc.ca/beaton/working-code/)
+To access the source code for the UBC Regime Model, which can be applied alongside GIFT, users are directed to Brett Eaton's [website](https://blogs.ubc.ca/beaton/working-code/)
 
 
 <br>

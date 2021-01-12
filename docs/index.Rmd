@@ -3,7 +3,7 @@
 <br>
 <br>
 
-The Geomorphic Approach is a more efficient and proven approach for conducting instream flow assessments. The development of the Geomorphic Approach was funded by a grant from the [Habitat Conservation Trust Foundation](https://hctf.ca/).
+The Geomorphic Instream Flow Tool (GIFT) is a more efficient and proven approach for conducting instream flow assessments. The development of this website to execute GIFT was funded by a grant from the [Habitat Conservation Trust Foundation](https://hctf.ca/).
 
 <br>
 
@@ -18,7 +18,7 @@ All of the code presented on this page is free software: you can redistribute it
 
 <br>
 
-For questions or enquiries regarding the Geomorphic Approach, contact Stefan Gronsdahl at: stefan.gronsdahl (at) pecg.ca
+For questions or enquiries regarding GIFT, contact Stefan Gronsdahl at: stefan.gronsdahl (at) pecg.ca
 
 <br>
 

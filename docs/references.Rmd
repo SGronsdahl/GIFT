@@ -2,7 +2,7 @@
 <br>
 <br>
 
-Eaton, B., Church, M., & Millar, R. (2004). Rational regime model of alluvial channel morphology and response. Earth Surface Processes and Landforms, 29(4): 511-529. [https://doi.org/10.1002/esp.1062](https://doi.org/10.1002/esp.1062)
+Eaton, B., Church, M., & Millar, R. (2004). Rational regime model of alluvial channel morphology and response. Earth Surface Processes and Landforms, 29(4): 511-529. [https://doi.org/10.1002/esp.1062](https://doi.org/10.1002/esp.1062) 
 
 McParland, D., Eaton, B., & Rosenfeld, J. (2016). At-a-station hydraulic geometry simulator. River Research and Applications 32, 399-410. [https://doi.org/10.1002/rra.2851](https://doi.org/10.1002/rra.2851)
 

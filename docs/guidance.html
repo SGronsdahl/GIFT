@@ -23,15 +23,6 @@
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-      </style>
-
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
   pre:not([class]) {
@@ -276,7 +267,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Geomorphic Approach</a>
+      <a class="navbar-brand" href="index.html">Geomorphic Instream Flow Tool</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -314,39 +305,38 @@ $(document).ready(function () {
 <p><br> <br></p>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>This page provides a guide for the use of the Geomorphic Approach for conducting instream flow assessments. Generally, the intent of instream flow assessments is to quantify available fish habitat at different flow levels using a metric called weighted usable area (<em>WUA</em>). The results of instream flow assessments are often used to support water allocation and management decisions.</p>
+<p>This page provides a guide for the use of GIFT for conducting instream flow assessments. Generally, the intent of instream flow assessments is to quantify available fish habitat at different flow levels using a metric called weighted usable area (<em>WUA</em>). The results of instream flow assessments are often used to support water allocation and management decisions.</p>
 <p>There are two main components for determining the <em>WUA</em> of a stream: (1) hydraulic data to characterize the depth and velocity characteristics of the stream, and (2) a biological model that describe the relevant species’ preference for those hydraulic characteristics, known as habitat suitability curves (HSCs). Observations that characterize the substrate and cover characteristics and the associated fish preferences may also be used to calculate <em>WUA</em>.</p>
-<p>Instream flow assessments using conventional methods are time consuming and expensive to implement and they only represent static channel conditions that represent a snapshot in time. The Geomorphic Approach has been designed to address these limitations by improving the hydraulic components of instream flow assessments. It can be implemented using minimal field data, and requires significantly less data processing and computing time compared to conventional methods.</p>
-<p>The Geomorphic Approach has three distinct components:</p>
+<p>Instream flow assessments using conventional methods are time consuming and expensive to implement and they only represent static channel conditions that represent a snapshot in time. GIFT has been designed to address these limitations by improving the hydraulic components of instream flow assessments. It can be implemented using minimal field data, and requires significantly less data processing and computing time compared to conventional methods.</p>
+<p>GIFT has two distinct components:</p>
 <ol style="list-style-type: decimal">
-<li>A reach-averaged hydraulic simulator,</li>
-<li>statistical distributions of depths and velocity that are used to calculate <em>WUA</em>, and</li>
-<li>a geomorphic regime model that can be used to predict how environmental change could affect channel conditions.</li>
+<li>A reach-averaged hydraulic simulation approach</li>
+<li>statistical distributions of depths and velocity that are used to calculate <em>WUA</em></li>
 </ol>
-<p>This guidance is focused on the implementation of the hydraulic simulator and statistical distribution components of the Geomorphic Approach. Readers who are interested in the theoretical underpinnings of the this approach are referred to McParland et al. (2016) for information on the hydraulic simulator, Saraeva and Hardy (2009) and Schweizer et al. (2007) for information on the statistical distributions, and Eaton et al. (2004) for information on the geomorphic regime model. An evaluation of the Geomorphic Approach in eight streams located in western Canada is also in progress. Once the findings of this evaluation become available they will be shared on this webiste. Please check out the References tab for more links to these studies.</p>
+<p>This guidance is focused on the implementation of the hydraulic simulator and statistical distribution components of GIFT. Readers who are interested in the theoretical underpinnings of the this approach are referred to McParland et al. (2016) for information on the hydraulic simulator, Saraeva and Hardy (2009) and Schweizer et al. (2007) for information on the statistical distributions, and Eaton et al. (2004) for information on the geomorphic regime model. An evaluation of GIFT in eight streams located in western Canada is also in progress. Once the findings of this evaluation become available they will be shared on this webiste. Please check out the References tab for more links to these studies.</p>
 <p><br></p>
 <div id="model-overview" class="section level2">
 <h2>Model Overview</h2>
-<p>The hydraulic data necessary to execute the Geomorphic Approach can be collected during one field visit that does not have to coincide with specific flow conditions. To calculate <em>WUA</em>, users must define their own HSCs. The Geomorphic Approach produces distributions of channel hydraulics at the reach scale. Currently, the Geomorphic Approach is unable to model the habitat conditions of individual channel units, such as pools or riffles.</p>
-<p>The hydraulic simulator component of the Geomorphic Approach uses a reach-averaged channel cross section of bankfull geometry. Using the input data, an index of bankfull channel shape (<em>b</em>) is calculated that ranges from 0 (rectangular channel) to 1 (highly skewed channel). To simulate the hydraulics of flows below bankfull, the model iteratively drops the water level until the point of zero discharge. For each modelled water level, mean velocity and depth is calculated.</p>
+<p>The hydraulic data necessary to execute GIFT can be collected during one field visit that does not have to coincide with specific flow conditions. To calculate <em>WUA</em>, users must define their own HSCs. GIFT produces distributions of channel hydraulics at the reach scale. Currently, GIFT is unable to model the habitat conditions of individual channel units, such as pools or riffles.</p>
+<p>The hydraulic simulation component of GIFT uses a reach-averaged channel cross section of bankfull geometry. Using the input data, an index of bankfull channel shape (<em>b</em>) is calculated that ranges from 0 (rectangular channel) to 1 (highly skewed channel). To simulate the hydraulics of flows below bankfull, the model iteratively drops the water level until the point of zero discharge. For each modelled water level, mean velocity and depth is calculated.</p>
 <p>Following the prediction of reach-averaged hydraulics, the next step is to apply statistical frequency distributions to represent reach-averaged variability. The resultant depth and velocity distributions can then be paired with user-specified habitat suitability curves to determine <em>WUA</em>.</p>
-<p>The third component of the Geomorphic Approach is the application of the UBC Regime Model (UBCRM). This model can be used to evaluate how environmental pertubations, such as climate and land-use change, are likely to affect bankfull parameters. The predicted channel geometry can then be used with the hydraulic simulator and the statistical frequency distributions to estimate the subsequent changes to fish habitat due to various environmental perturbations (i.e. ‘what-if’ scenarios). The UBCRM may also be used to estimate input parameters if field observations are limited.</p>
+<p>The third component of GIFT is the application of the UBC Regime Model (UBCRM). This model can be used to evaluate how environmental pertubations, such as climate and land-use change, are likely to affect bankfull parameters. The predicted channel geometry can then be used with the hydraulic simulator and the statistical frequency distributions to estimate the subsequent changes to fish habitat due to various environmental perturbations (i.e. ‘what-if’ scenarios). The UBCRM may also be used to estimate input parameters if field observations are limited.</p>
 <p><br></p>
 </div>
 </div>
-<div id="applying-the-geomorphic-approach" class="section level1">
-<h1>Applying the Geomorphic Approach</h1>
+<div id="applying-the-gift" class="section level1">
+<h1>Applying the GIFT</h1>
 <p><br></p>
 <div id="field-considerations" class="section level3">
 <h3>Field Considerations</h3>
-<p>There are many ways the Geomorphic Approach could be implemented. Field programs should be designed around project objectives. This section is intended to provide considerations for designing a field program, it is not a step-by-step guide for collecting field data.</p>
-<p>When planning a field trip to collect data to run the Geomorphic Approach, it is necessary to identify the study reach. Then, channel geometry can be characterized by collecting depth data along a series of transects. The location and the appropriate number of transects are dependent on factors such as desired accuracy, access, and time. A robust approach is to identify cross sections randomly within the reach, but that is not always practical. Another option is to characterize the study reach by channel units (mesohabitats), and then identify transects within those classifications using a stratified random approach. When collecting cross sections, be sure to note the estimated bankfull elevations on either side of the channel.</p>
-<p>Another key data requirement to execute the Geomorphic Approach is a representative grain size distribution, which is used to evaluate channel roughness and estimate velocity. This can be conducted using a Wolman pebble count, analysis of photographs, or visual estimation. Because the field work does not need to coincide with any particular flow, these data are most easily collected during open-water, low flow conditions. Coordinating a field visit during low flows would also likely coincide with the safest conditions for wading.</p>
+<p>There are many ways GIFT could be implemented. Field programs should be designed around project objectives. This section is intended to provide considerations for designing a field program, it is not a step-by-step guide for collecting field data.</p>
+<p>When planning a field trip to collect data to run GIFT, it is necessary to identify the study reach. Then, channel geometry can be characterized by collecting depth data along a series of transects. The location and the appropriate number of transects are dependent on factors such as desired accuracy, access, and time. A robust approach is to identify cross sections randomly within the reach, but that is not always practical. Another option is to characterize the study reach by channel units (mesohabitats), and then identify transects within those classifications using a stratified random approach. When collecting cross sections, be sure to note the estimated bankfull elevations on either side of the channel.</p>
+<p>Another key data requirement to execute GIFT is a representative grain size distribution, which is used to evaluate channel roughness and estimate velocity. This can be conducted using a Wolman pebble count, analysis of photographs, or visual estimation. Because the field work does not need to coincide with any particular flow, these data are most easily collected during open-water, low flow conditions. Coordinating a field visit during low flows would also likely coincide with the safest conditions for wading.</p>
 <p><br></p>
 </div>
 <div id="data-requirements" class="section level3">
 <h3>Data Requirements</h3>
-<p>The input parameters for the Geomorphic APproach are as follows:</p>
+<p>The input parameters for GIFT are as follows:</p>
 <ul>
 <li><strong>Channel gradient</strong>, <span class="math inline">\(S\)</span> (m/m). This field is mandatory.</li>
 <li><strong>Bankfull width</strong>, <span class="math inline">\(W_b\)</span> (m). This field is mandatory.</li>
@@ -361,33 +351,35 @@ $(document).ready(function () {
 </div>
 <div id="using-the-app" class="section level3">
 <h3>Using the App</h3>
-<p>One option for evaluating the hydraulic simulator and statistical distribution components of the Geomorphic Approach is to use the interactive <a href="https://sgronsdahl.github.io/GeomorphicApproach/app.html">App</a>. Input data can be interactively entered and reach-averaged hydraulics and <em>WUA</em> outputs can be visualized and downloaded.</p>
+<p>One option for evaluating the hydraulic simulator and statistical distribution components of GIFT is to use the interactive <a href="https://sgronsdahl.github.io/GIFT/app.html">App</a>. Input data can be interactively entered and reach-averaged hydraulics and <em>WUA</em> outputs can be visualized and downloaded.</p>
 <p><br></p>
 </div>
 <div id="using-the-r-package" class="section level3">
 <h3>Using the R Package</h3>
-<p>For users familiar with R, the Geomorphic Approach is available as a package from GitHub. The below code snippet uses the ‘devtools’ package to install the package. Currently, there are two functions in the package, one to execute the hydraulic simulator and another to execute the statistical distributions and calculate <em>WUA</em>. The below code should be un-commented out where necessary to install the package for the first time.</p>
-<pre class="r"><code>## install and load devtools
+<p>For users familiar with R, GIFT is available as a package from GitHub. The below code snippet uses the ‘devtools’ package to install the package. Currently, there are two functions in the package, one to execute the hydraulic simulator and another to execute the statistical distributions and calculate <em>WUA</em>. The below code should be un-commented out where necessary to install the package for the first time.</p>
+<pre class="r"><code>library(dplyr)
+
+## install and load devtools
 # install.packages(devtools)
 # library(devtools)
 
 ## install and load package
-# install_github(&quot;SGronsdahl/GeomorphicApproach&quot;)
-library(GeomorphicApproach)</code></pre>
+# install_github(&quot;SGronsdahl/GIFT&quot;)
+ library(GIFT)</code></pre>
 <p><br></p>
 <div id="executing-the-hydraulic-simulator" class="section level4">
 <h4>Executing the Hydraulic Simulator</h4>
-<p>The first function in the Geomorphic Approach package is the ‘AvgHydraulics’ function that executes the hydraulic simulator and produces a data frame of outputs. The below code snippet provides an example of how to run the model. The following code snippets showcase the execution of the AvgHydraulics function. In this scenario, <span class="math inline">\(d_{max}\)</span> is not specified, so the function assumes <span class="math inline">\(b = (W_b / d_b)\)</span></p>
+<p>The first function in GIFT package is the ‘AvgHydraulics’ function that executes the hydraulic simulator and produces a data frame of outputs. The below code snippet provides an example of how to run the model. The following code snippets showcase the execution of the AvgHydraulics function. In this scenario, <span class="math inline">\(d_{max}\)</span> is not specified, so the function assumes <span class="math inline">\(b = (W_b / d_b)\)</span></p>
 <pre class="r"><code>hydraulics = AvgHydraulics(S = 0.01, wb = 10, db = 0.5, 
                            max_Q = 0.1, D84 = 100)
 head(hydraulics)</code></pre>
 <pre><code>##       Q         Ai       Wi         di         Ui
-## 1 0.001 0.03618925 1.515524 0.02387774 0.02762782
-## 2 0.002 0.05379823 1.847288 0.02912169 0.03717166
-## 3 0.003 0.06792745 2.075737 0.03272371 0.04416157
-## 4 0.004 0.08021622 2.256264 0.03555204 0.04986260
-## 5 0.005 0.09129151 2.407275 0.03792274 0.05476770
-## 6 0.006 0.10125749 2.534800 0.03994605 0.05925081</code></pre>
+## 1 0.001 0.03625683 1.516901 0.02390076 0.02757710
+## 2 0.002 0.05395627 1.850492 0.02915690 0.03706367
+## 3 0.003 0.06809853 2.078908 0.03275590 0.04404992
+## 4 0.004 0.08034085 2.258076 0.03557892 0.04978612
+## 5 0.005 0.09133912 2.407678 0.03793610 0.05473889
+## 6 0.006 0.10143964 2.537302 0.03997850 0.05914482</code></pre>
 <p><br></p>
 <p>The idealized reach-cross section generated by this analysis is as follows: <img src="channel_xs_dmean.jpeg" width="70%" style="display: block; margin: auto;" /></p>
 <p><br></p>
@@ -396,12 +388,12 @@ head(hydraulics)</code></pre>
                            max_Q = 0.1, D84 = 100)
 head(hydraulics)</code></pre>
 <pre><code>##       Q         Ai        Wi         di         Ui
-## 1 0.001 0.01630011 0.2942534 0.05539035 0.06133074
-## 2 0.002 0.02421254 0.3579279 0.06764284 0.08258557
-## 3 0.003 0.03083450 0.4043525 0.07625390 0.09728130
-## 4 0.004 0.03675814 0.4413796 0.08327771 0.10880770
-## 5 0.005 0.04132429 0.4674906 0.08839363 0.12098222
-## 6 0.006 0.04650925 0.4963660 0.09369717 0.12899463</code></pre>
+## 1 0.001 0.01667512 0.2972807 0.05609071 0.05996488
+## 2 0.002 0.02486225 0.3629916 0.06848898 0.08043068
+## 3 0.003 0.03142717 0.4081224 0.07700423 0.09545860
+## 4 0.004 0.03711957 0.4435399 0.08368678 0.10775030
+## 5 0.005 0.04224627 0.4731803 0.08927929 0.11834497
+## 6 0.006 0.04696391 0.4989043 0.09413288 0.12775286</code></pre>
 <p><br></p>
 <p>The idealized reach-cross section generated by this analysis is as follows: <img src="channel_xs_dmax.jpeg" width="70%" style="display: block; margin: auto;" /></p>
 <p><br></p>
@@ -438,35 +430,40 @@ s_curve = read.csv(&quot;substrate_suit_ptolemy.csv&quot;)%&gt;% filter(species 
 <p>And to refresh our memory, here is what the hydraulics data looks like that we generated earlier.</p>
 <pre class="r"><code>head(hydraulics)</code></pre>
 <pre><code>##       Q         Ai        Wi         di         Ui
-## 1 0.001 0.01630011 0.2942534 0.05539035 0.06133074
-## 2 0.002 0.02421254 0.3579279 0.06764284 0.08258557
-## 3 0.003 0.03083450 0.4043525 0.07625390 0.09728130
-## 4 0.004 0.03675814 0.4413796 0.08327771 0.10880770
-## 5 0.005 0.04132429 0.4674906 0.08839363 0.12098222
-## 6 0.006 0.04650925 0.4963660 0.09369717 0.12899463</code></pre>
+## 1 0.001 0.01667512 0.2972807 0.05609071 0.05996488
+## 2 0.002 0.02486225 0.3629916 0.06848898 0.08043068
+## 3 0.003 0.03142717 0.4081224 0.07700423 0.09545860
+## 4 0.004 0.03711957 0.4435399 0.08368678 0.10775030
+## 5 0.005 0.04224627 0.4731803 0.08927929 0.11834497
+## 6 0.006 0.04696391 0.4989043 0.09413288 0.12775286</code></pre>
 <p><br></p>
 <p>Here is an example of the execution of the Habitat function using just depth and velocity.</p>
-<pre class="r"><code>habitat = Habitat(hydraulics = hydraulics, d_curve = d_curve, v_curve = v_curve, max_Q = 0.1)
-head(habitat)</code></pre>
+<pre class="r"><code>habitat = Habitat(hydraulics = hydraulics, d_curve = d_curve, v_curve = v_curve, max_Q = 0.1)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre class="r"><code>head(habitat)</code></pre>
 <pre><code>##       Q    d.suit    v.suit s.suit         w        WUA
-## 1 0.001 0.2235340 0.2637040      1 0.2942534 0.01734530
-## 2 0.002 0.2729970 0.3416088      1 0.3579279 0.03337971
-## 3 0.003 0.3067178 0.3905200      1 0.4043525 0.04843312
-## 4 0.004 0.3312416 0.4333281      1 0.4413796 0.06335399
-## 5 0.005 0.3498271 0.4682544      1 0.4674906 0.07657874
-## 6 0.006 0.3673975 0.4926594      1 0.4963660 0.08984316</code></pre>
+## 1 0.001 0.2276549 0.2549141      1 0.2972807 0.01725193
+## 2 0.002 0.2787464 0.3332904      1 0.3629916 0.03372319
+## 3 0.003 0.3103864 0.3858780      1 0.4081224 0.04888134
+## 4 0.004 0.3350859 0.4293030      1 0.4435399 0.06380472
+## 5 0.005 0.3532596 0.4616608      1 0.4731803 0.07716913
+## 6 0.006 0.3697394 0.4877912      1 0.4989043 0.08998021</code></pre>
 <p><br></p>
 <p>It is also possible to define the grain size distribution and substrate suitability curves to include a reach-averaged substrate suitability. Both grain size distribution and substrate suitability curve must be specified to generate a substrate suitability value for the reach.</p>
 <pre class="r"><code>habitat = Habitat(hydraulics = hydraulics, d_curve = d_curve, 
                   v_curve = v_curve, s_curve = s_curve, gsd = gsd, max_Q = 1)
 head(habitat)</code></pre>
 <pre><code>##       Q    d.suit    v.suit s.suit         w         WUA
-## 1 0.001 0.2235340 0.2637040  0.569 0.2942534 0.009869477
-## 2 0.002 0.2729970 0.3416088  0.569 0.3579279 0.018993052
-## 3 0.003 0.3067178 0.3905200  0.569 0.4043525 0.027558443
-## 4 0.004 0.3312416 0.4333281  0.569 0.4413796 0.036048418
-## 5 0.005 0.3498271 0.4682544  0.569 0.4674906 0.043573303
-## 6 0.006 0.3673975 0.4926594  0.569 0.4963660 0.051120758</code></pre>
+## 1 0.001 0.2276549 0.2549141  0.564 0.2972807 0.009730086
+## 2 0.002 0.2787464 0.3332904  0.564 0.3629916 0.019019877
+## 3 0.003 0.3103864 0.3858780  0.564 0.4081224 0.027569075
+## 4 0.004 0.3350859 0.4293030  0.564 0.4435399 0.035985860
+## 5 0.005 0.3532596 0.4616608  0.564 0.4731803 0.043523387
+## 6 0.006 0.3697394 0.4877912  0.564 0.4989043 0.050748838</code></pre>
 <p><br></p>
 <p>The Habitat function outputs a streamflow - habitat curve to the working directory as well. This functionality can be overridden if ‘wua_output = FALSE’ is specified.</p>
 <p><img src="WUA_Q.jpeg" width="70%" style="display: block; margin: auto;" /></p>
