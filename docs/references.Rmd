@@ -1,0 +1,19 @@
+<br>
+<br>
+<br>
+
+Eaton, B., Church, M., & Millar, R. (2004). Rational regime model of alluvial channel morphology and response. Earth Surface Processes and Landforms, 29(4): 511-529. [https://doi.org/10.1002/esp.1062](https://doi.org/10.1002/esp.1062)
+
+McParland, D., Eaton, B., & Rosenfeld, J. (2016). At-a-station hydraulic geometry simulator. River Research and Applications 32, 399-410. [https://doi.org/10.1002/rra.2851](https://doi.org/10.1002/rra.2851)
+
+Saraeva, E. & Hardy, T.B. (2009). Prediction of fisheries physical habitat values based on hydraulic geometry and frequency distributions of depth and velocity. International Journal of River Basin Management, 7(1): 31-41. [https://doi.org/10.1080/15715124.2009.9635368](https://doi.org/10.1080/15715124.2009.9635368)
+
+Schweizer, S., Borusk, M.E., Jowett, I., & Reichert, P. (2007). Predicting joint frequency distributions of depth and velocity for instream habitat assessment. River Research and Applications, 23: 287-302. [https://doi.org/10.1002/rra.980](https://doi.org/10.1002/rra.980)
+
+<br>
+<br>
+<br>
+
+```{r, echo = F, message = T, out.width = '95%', fig.align='center'}
+knitr::include_graphics('river2.jpg') 
+```

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>guidance.utf8</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Geomorphic Approach</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="guidance.html">Guidance</a>
+</li>
+<li>
+  <a href="app.html">App</a>
+</li>
+<li>
+  <a href="rawcode.html">Source Code</a>
+</li>
+<li>
+  <a href="references.html">References</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<p><br> <br></p>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This page provides a guide for the use of the Geomorphic Approach for conducting instream flow assessments. Generally, the intent of instream flow assessments is to quantify available fish habitat at different flow levels using a metric called weighted usable area (<em>WUA</em>). The results of instream flow assessments are often used to support water allocation and management decisions.</p>
+<p>There are two main components for determining the <em>WUA</em> of a stream: (1) hydraulic data to characterize the depth and velocity characteristics of the stream, and (2) a biological model that describe the relevant species’ preference for those hydraulic characteristics, known as habitat suitability curves (HSCs). Observations that characterize the substrate and cover characteristics and the associated fish preferences may also be used to calculate <em>WUA</em>.</p>
+<p>Instream flow assessments using conventional methods are time consuming and expensive to implement and they only represent static channel conditions that represent a snapshot in time. The Geomorphic Approach has been designed to address these limitations by improving the hydraulic components of instream flow assessments. It can be implemented using minimal field data, and requires significantly less data processing and computing time compared to conventional methods.</p>
+<p>The Geomorphic Approach has three distinct components:</p>
+<ol style="list-style-type: decimal">
+<li>A reach-averaged hydraulic simulator,</li>
+<li>statistical distributions of depths and velocity that are used to calculate <em>WUA</em>, and</li>
+<li>a geomorphic regime model that can be used to predict how environmental change could affect channel conditions.</li>
+</ol>
+<p>This guidance is focused on the implementation of the hydraulic simulator and statistical distribution components of the Geomorphic Approach. Readers who are interested in the theoretical underpinnings of the this approach are referred to McParland et al. (2016) for information on the hydraulic simulator, Saraeva and Hardy (2009) and Schweizer et al. (2007) for information on the statistical distributions, and Eaton et al. (2004) for information on the geomorphic regime model. An evaluation of the Geomorphic Approach in eight streams located in western Canada is also in progress. Once the findings of this evaluation become available they will be shared on this webiste. Please check out the References tab for more links to these studies.</p>
+<p><br></p>
+<div id="model-overview" class="section level2">
+<h2>Model Overview</h2>
+<p>The hydraulic data necessary to execute the Geomorphic Approach can be collected during one field visit that does not have to coincide with specific flow conditions. To calculate <em>WUA</em>, users must define their own HSCs. The Geomorphic Approach produces distributions of channel hydraulics at the reach scale. Currently, the Geomorphic Approach is unable to model the habitat conditions of individual channel units, such as pools or riffles.</p>
+<p>The hydraulic simulator component of the Geomorphic Approach uses a reach-averaged channel cross section of bankfull geometry. Using the input data, an index of bankfull channel shape (<em>b</em>) is calculated that ranges from 0 (rectangular channel) to 1 (highly skewed channel). To simulate the hydraulics of flows below bankfull, the model iteratively drops the water level until the point of zero discharge. For each modelled water level, mean velocity and depth is calculated.</p>
+<p>Following the prediction of reach-averaged hydraulics, the next step is to apply statistical frequency distributions to represent reach-averaged variability. The resultant depth and velocity distributions can then be paired with user-specified habitat suitability curves to determine <em>WUA</em>.</p>
+<p>The third component of the Geomorphic Approach is the application of the UBC Regime Model (UBCRM). This model can be used to evaluate how environmental pertubations, such as climate and land-use change, are likely to affect bankfull parameters. The predicted channel geometry can then be used with the hydraulic simulator and the statistical frequency distributions to estimate the subsequent changes to fish habitat due to various environmental perturbations (i.e. ‘what-if’ scenarios). The UBCRM may also be used to estimate input parameters if field observations are limited.</p>
+<p><br></p>
+</div>
+</div>
+<div id="applying-the-geomorphic-approach" class="section level1">
+<h1>Applying the Geomorphic Approach</h1>
+<p><br></p>
+<div id="field-considerations" class="section level3">
+<h3>Field Considerations</h3>
+<p>There are many ways the Geomorphic Approach could be implemented. Field programs should be designed around project objectives. This section is intended to provide considerations for designing a field program, it is not a step-by-step guide for collecting field data.</p>
+<p>When planning a field trip to collect data to run the Geomorphic Approach, it is necessary to identify the study reach. Then, channel geometry can be characterized by collecting depth data along a series of transects. The location and the appropriate number of transects are dependent on factors such as desired accuracy, access, and time. A robust approach is to identify cross sections randomly within the reach, but that is not always practical. Another option is to characterize the study reach by channel units (mesohabitats), and then identify transects within those classifications using a stratified random approach. When collecting cross sections, be sure to note the estimated bankfull elevations on either side of the channel.</p>
+<p>Another key data requirement to execute the Geomorphic Approach is a representative grain size distribution, which is used to evaluate channel roughness and estimate velocity. This can be conducted using a Wolman pebble count, analysis of photographs, or visual estimation. Because the field work does not need to coincide with any particular flow, these data are most easily collected during open-water, low flow conditions. Coordinating a field visit during low flows would also likely coincide with the safest conditions for wading.</p>
+<p><br></p>
+</div>
+<div id="data-requirements" class="section level3">
+<h3>Data Requirements</h3>
+<p>The input parameters for the Geomorphic APproach are as follows:</p>
+<ul>
+<li><strong>Channel gradient</strong>, <span class="math inline">\(S\)</span> (m/m). This field is mandatory.</li>
+<li><strong>Bankfull width</strong>, <span class="math inline">\(W_b\)</span> (m). This field is mandatory.</li>
+<li><strong>Mean bankfull depth</strong>, <span class="math inline">\(d_b\)</span> (m). This field is mandatory.</li>
+<li><strong>Maximum bankfull depth,</strong> <span class="math inline">\(d_{max}\)</span> (m). This field is optional.</li>
+<li><strong>84th percentile grain size</strong>, <span class="math inline">\(D_{84}\)</span> (mm) (the grain size of which 84% of the bed is finer).</li>
+<li><strong>Habitat Suitability Curves</strong>. These are required to calculate <em>WUA</em>. Further information regarding the format that these curves should be in is included in the description of the Habitat function, below.</li>
+<li><strong>Bankfull discharge</strong>, <span class="math inline">\(Q_{bf}\)</span>, is recommended, but is not required to run the hydraulic simulator. However, <span class="math inline">\(Q_{bf}\)</span> can be used to check that the bankfull dimensions generated by the model reflect empirical measurements. <span class="math inline">\(Q_{bf}\)</span> is necessary to run UBCRM.</li>
+</ul>
+<p>The channel dimensions are used to generate an index of channel shape, <em>b</em>. If only db is provided, then <em>b</em> is calculated as follows: <span class="math display">\[b = (W_b / d_b)\]</span> If <span class="math inline">\(d_{max}\)</span> is provided, then <em>b</em> is calculated as follows: <span class="math display">\[b = 1 - (d_b/d_{max})\]</span> Alternatively, the R function allows the user to specify <em>b</em>, directly over-riding these functions.</p>
+<p><br></p>
+</div>
+<div id="using-the-app" class="section level3">
+<h3>Using the App</h3>
+<p>One option for evaluating the hydraulic simulator and statistical distribution components of the Geomorphic Approach is to use the interactive <a href="https://sgronsdahl.github.io/GeomorphicApproach/app.html">App</a>. Input data can be interactively entered and reach-averaged hydraulics and <em>WUA</em> outputs can be visualized and downloaded.</p>
+<p><br></p>
+</div>
+<div id="using-the-r-package" class="section level3">
+<h3>Using the R Package</h3>
+<p>For users familiar with R, the Geomorphic Approach is available as a package from GitHub. The below code snippet uses the ‘devtools’ package to install the package. Currently, there are two functions in the package, one to execute the hydraulic simulator and another to execute the statistical distributions and calculate <em>WUA</em>. The below code should be un-commented out where necessary to install the package for the first time.</p>
+<pre class="r"><code>## install and load devtools
+# install.packages(devtools)
+# library(devtools)
+
+## install and load package
+# install_github(&quot;SGronsdahl/GeomorphicApproach&quot;)
+library(GeomorphicApproach)</code></pre>
+<p><br></p>
+<div id="executing-the-hydraulic-simulator" class="section level4">
+<h4>Executing the Hydraulic Simulator</h4>
+<p>The first function in the Geomorphic Approach package is the ‘AvgHydraulics’ function that executes the hydraulic simulator and produces a data frame of outputs. The below code snippet provides an example of how to run the model. The following code snippets showcase the execution of the AvgHydraulics function. In this scenario, <span class="math inline">\(d_{max}\)</span> is not specified, so the function assumes <span class="math inline">\(b = (W_b / d_b)\)</span></p>
+<pre class="r"><code>hydraulics = AvgHydraulics(S = 0.01, wb = 10, db = 0.5, 
+                           max_Q = 0.1, D84 = 100)
+head(hydraulics)</code></pre>
+<pre><code>##       Q         Ai       Wi         di         Ui
+## 1 0.001 0.03618925 1.515524 0.02387774 0.02762782
+## 2 0.002 0.05379823 1.847288 0.02912169 0.03717166
+## 3 0.003 0.06792745 2.075737 0.03272371 0.04416157
+## 4 0.004 0.08021622 2.256264 0.03555204 0.04986260
+## 5 0.005 0.09129151 2.407275 0.03792274 0.05476770
+## 6 0.006 0.10125749 2.534800 0.03994605 0.05925081</code></pre>
+<p><br></p>
+<p>The idealized reach-cross section generated by this analysis is as follows: <img src="channel_xs_dmean.jpeg" width="70%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<p>Here, the <span class="math inline">\(d_{max}\)</span> term is specificied within the AvgHydraulics function call, so the function assumes <span class="math inline">\(b = 1 - (d_b/d_{max})\)</span></p>
+<pre class="r"><code>hydraulics = AvgHydraulics(S = 0.01, wb = 10, db = 0.5, db_max = 1.25,
+                           max_Q = 0.1, D84 = 100)
+head(hydraulics)</code></pre>
+<pre><code>##       Q         Ai        Wi         di         Ui
+## 1 0.001 0.01630011 0.2942534 0.05539035 0.06133074
+## 2 0.002 0.02421254 0.3579279 0.06764284 0.08258557
+## 3 0.003 0.03083450 0.4043525 0.07625390 0.09728130
+## 4 0.004 0.03675814 0.4413796 0.08327771 0.10880770
+## 5 0.005 0.04132429 0.4674906 0.08839363 0.12098222
+## 6 0.006 0.04650925 0.4963660 0.09369717 0.12899463</code></pre>
+<p><br></p>
+<p>The idealized reach-cross section generated by this analysis is as follows: <img src="channel_xs_dmax.jpeg" width="70%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<p>Users may also specify a b-value, thereby over-riding either formula.</p>
+<pre class="r"><code>hydraulics = AvgHydraulics(S = 0.01, wb = 10, db = 0.5, db_max = 1.25,
+                           max_Q = 0.1, D84 = 100, b_value = 0.2)</code></pre>
+<p><br></p>
+<p>This function outputs a figure of the cross-section of the idealized reach and a .csv file of the simluated reach-averaged hydraulics. This feature may be turned off by specifying xs_ouput = FALSE, like so:</p>
+<pre class="r"><code>hydraulics = AvgHydraulics(S = 0.01, wb = 10, db = 0.5, db_max = 1.25,
+                           max_Q = 1, D84 = 100, xs_output = FALSE)</code></pre>
+<p><br></p>
+</div>
+<div id="execute-the-habitat-function" class="section level4">
+<h4>Execute the Habitat Function</h4>
+<p>The Habitat function applies statistical frequency distribution to the mean depths and velocities that are output by the hydraulic simulator function. These disitributions are then paired with user-specified habitat suitability curves to generate reach-averaged depth and velocity suitabilities. To estimate the <em>WUA</em> of the stream reach, these suitabilities are multiplied with the modelled stream width to develop a <em>WUA</em> value in m<sup>2</sup> / m.</p>
+<p>The input parameters for the Habitat function are as follows:</p>
+<ul>
+<li><strong>hydrualics</strong>, a data frame of outputs generated by the AvgHydraulics function. This field is mandatory.</li>
+<li><strong>d_curve</strong>, depth suitability curve. This should be a dataframe with two columns: ‘depth’ (m) and ‘suit’ (dimensionless suitability from 0-1). This field is mandatory.</li>
+<li><strong>v_curve</strong>, velocity suitability curve. This should be a dataframe with two columns: ‘velocity’ (m/s) and ‘suit’ (dimensionless suitability from 0-1). This field is mandatory.</li>
+<li><strong>s_curve</strong>, substrate suitability curve. This is a dataframe of substrate suitabilities with three columns: ‘lower’ (mm) and ‘upper’ (mm) of grain size classes and ‘suit’ (dimensionless suitability from 0-1). This field is optional.</li>
+<li><strong>gsd</strong>, vector of grain size distribution (mm). This field is optional.</li>
+</ul>
+<p>Here are some example input data used for the subsequent examples. We will use rainbow trout parr suitability curves generated by Ron Ptolemy, Instream Flow Specialist, B.C. Ministry of Environment.</p>
+<pre class="r"><code>d_curve = read.csv(&quot;depth_suit_ptolemy.csv&quot;)%&gt;% filter(species == &quot;rainbow&quot; &amp; life_stage == &quot;parr&quot;)
+v_curve = read.csv(&quot;velocity_suit_ptolemy.csv&quot;)%&gt;% filter(species == &quot;rainbow&quot; &amp; life_stage == &quot;parr&quot;)
+s_curve = read.csv(&quot;substrate_suit_ptolemy.csv&quot;)%&gt;% filter(species == &quot;rainbow&quot; &amp; life_stage == &quot;parr&quot;)</code></pre>
+<p><img src="guidance_files/figure-html/unnamed-chunk-9-1.png" width="1440" /></p>
+<p><br></p>
+<p>The grain size distribution should be specified as a vector of numerical observations. For this example, a simulated disribution will be generated:</p>
+<pre class="r"><code>gsd = rnorm(100, mean = 75, sd = 25)</code></pre>
+<p><img src="guidance_files/figure-html/unnamed-chunk-11-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<p>And to refresh our memory, here is what the hydraulics data looks like that we generated earlier.</p>
+<pre class="r"><code>head(hydraulics)</code></pre>
+<pre><code>##       Q         Ai        Wi         di         Ui
+## 1 0.001 0.01630011 0.2942534 0.05539035 0.06133074
+## 2 0.002 0.02421254 0.3579279 0.06764284 0.08258557
+## 3 0.003 0.03083450 0.4043525 0.07625390 0.09728130
+## 4 0.004 0.03675814 0.4413796 0.08327771 0.10880770
+## 5 0.005 0.04132429 0.4674906 0.08839363 0.12098222
+## 6 0.006 0.04650925 0.4963660 0.09369717 0.12899463</code></pre>
+<p><br></p>
+<p>Here is an example of the execution of the Habitat function using just depth and velocity.</p>
+<pre class="r"><code>habitat = Habitat(hydraulics = hydraulics, d_curve = d_curve, v_curve = v_curve, max_Q = 0.1)
+head(habitat)</code></pre>
+<pre><code>##       Q    d.suit    v.suit s.suit         w        WUA
+## 1 0.001 0.2235340 0.2637040      1 0.2942534 0.01734530
+## 2 0.002 0.2729970 0.3416088      1 0.3579279 0.03337971
+## 3 0.003 0.3067178 0.3905200      1 0.4043525 0.04843312
+## 4 0.004 0.3312416 0.4333281      1 0.4413796 0.06335399
+## 5 0.005 0.3498271 0.4682544      1 0.4674906 0.07657874
+## 6 0.006 0.3673975 0.4926594      1 0.4963660 0.08984316</code></pre>
+<p><br></p>
+<p>It is also possible to define the grain size distribution and substrate suitability curves to include a reach-averaged substrate suitability. Both grain size distribution and substrate suitability curve must be specified to generate a substrate suitability value for the reach.</p>
+<pre class="r"><code>habitat = Habitat(hydraulics = hydraulics, d_curve = d_curve, 
+                  v_curve = v_curve, s_curve = s_curve, gsd = gsd, max_Q = 1)
+head(habitat)</code></pre>
+<pre><code>##       Q    d.suit    v.suit s.suit         w         WUA
+## 1 0.001 0.2235340 0.2637040  0.569 0.2942534 0.009869477
+## 2 0.002 0.2729970 0.3416088  0.569 0.3579279 0.018993052
+## 3 0.003 0.3067178 0.3905200  0.569 0.4043525 0.027558443
+## 4 0.004 0.3312416 0.4333281  0.569 0.4413796 0.036048418
+## 5 0.005 0.3498271 0.4682544  0.569 0.4674906 0.043573303
+## 6 0.006 0.3673975 0.4926594  0.569 0.4963660 0.051120758</code></pre>
+<p><br></p>
+<p>The Habitat function outputs a streamflow - habitat curve to the working directory as well. This functionality can be overridden if ‘wua_output = FALSE’ is specified.</p>
+<p><img src="WUA_Q.jpeg" width="70%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<hr />
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

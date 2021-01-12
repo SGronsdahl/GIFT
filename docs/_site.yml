@@ -1,0 +1,18 @@
+name: "Geomorphic Instream Flow Tool"
+output_dir: "."
+navbar:
+  title: "Geomorphic Instream Flow Too l"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Guidance"
+      href: guidance.html
+    - text: "App"
+      href: app.html
+    - text: "Source Code"
+      href: rawcode.html
+    - text: "References"
+      href: references.html
+output:
+  html_document:
+    theme: flatly

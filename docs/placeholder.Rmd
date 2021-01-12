@@ -1,0 +1,14 @@
+---
+title: "Page Placeholder"
+author: "Stefan Gronsdahl"
+date: "06/11/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This page is a placeholder
