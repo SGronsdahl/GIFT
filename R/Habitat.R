@@ -1,6 +1,6 @@
 ### Geomorphic Instream Flow Tool ###
 
-#' A function to execute the ASHGS model
+#' A function to execute the habitat model
 #'
 #' This function executes the hydraulic geometry simulator to evaluate reach-averaged depths and velocities
 #' generated at flows less than bankfull conditions.

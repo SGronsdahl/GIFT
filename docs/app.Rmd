@@ -3,7 +3,7 @@
 <br>
 <br>
 
-To access an R-Shiny App to execute components of the Geomorphic Approach, click [here](https://sgronsdahl.shinyapps.io/GeomorphicApproach/).
+To access an R-Shiny App to execute GIFT, click [here](https://sgronsdahl.shinyapps.io/GeomorphicApproach/).
 
 <br>
 <br>

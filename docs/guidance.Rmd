@@ -3,45 +3,44 @@
 
 # Introduction
 
-This page provides a guide for the use of the Geomorphic Approach for conducting instream flow assessments. Generally, the intent of instream flow assessments is to quantify available fish habitat at different flow levels using a metric called weighted usable area (*WUA*). The results of instream flow assessments are often used to support water allocation and management decisions.
+This page provides a guide for the use of GIFT for conducting instream flow assessments. Generally, the intent of instream flow assessments is to quantify available fish habitat at different flow levels using a metric called weighted usable area (*WUA*). The results of instream flow assessments are often used to support water allocation and management decisions.
 
 There are two main components for determining the *WUA* of a stream: (1) hydraulic data to characterize the depth and velocity characteristics of the stream, and (2) a biological model that describe the relevant species’ preference for those hydraulic characteristics, known as habitat suitability curves (HSCs). Observations that characterize the substrate and cover characteristics and the associated fish preferences may also be used to calculate *WUA*.
 
-Instream flow assessments using conventional methods are time consuming and expensive to implement and they only represent static channel conditions that represent a snapshot in time. The Geomorphic Approach has been designed to address these limitations by improving the hydraulic components of instream flow assessments. It can be implemented using minimal field data, and requires significantly less data processing and computing time compared to conventional methods.
+Instream flow assessments using conventional methods are time consuming and expensive to implement and they only represent static channel conditions that represent a snapshot in time. GIFT has been designed to address these limitations by improving the hydraulic components of instream flow assessments. It can be implemented using minimal field data, and requires significantly less data processing and computing time compared to conventional methods.
 
-The Geomorphic Approach has three distinct components: 
+GIFT has two distinct components: 
 
-1. A reach-averaged hydraulic simulator, 
-2. statistical distributions of depths and velocity that are used to calculate *WUA*, and 
-3. a geomorphic regime model that can be used to predict how environmental change could affect channel conditions. 
+1. A reach-averaged hydraulic simulation approach 
+2. statistical distributions of depths and velocity that are used to calculate *WUA*
 
-This guidance is focused on the implementation of the hydraulic simulator and statistical distribution components of the Geomorphic Approach. Readers who are interested in the theoretical underpinnings of the this approach are referred to McParland et al. (2016) for information on the hydraulic simulator, Saraeva and Hardy (2009) and Schweizer et al. (2007) for information on the statistical distributions, and Eaton et al. (2004) for information on the geomorphic regime model. An evaluation of the Geomorphic Approach in eight streams located in western Canada is also in progress. Once the findings of this evaluation become available they will be shared on this webiste. Please check out the References tab for more links to these studies. 
+This guidance is focused on the implementation of the hydraulic simulator and statistical distribution components of GIFT. Readers who are interested in the theoretical underpinnings of the this approach are referred to McParland et al. (2016) for information on the hydraulic simulator, Saraeva and Hardy (2009) and Schweizer et al. (2007) for information on the statistical distributions, and Eaton et al. (2004) for information on the geomorphic regime model. An evaluation of GIFT in eight streams located in western Canada is also in progress. Once the findings of this evaluation become available they will be shared on this webiste. Please check out the References tab for more links to these studies. 
  
 <br>
 
 ## Model Overview
 
-The hydraulic data necessary to execute the Geomorphic Approach can be collected during one field visit that does not have to coincide with specific flow conditions. To calculate *WUA*, users must define their own HSCs. The Geomorphic Approach produces distributions of channel hydraulics at the reach scale. Currently, the Geomorphic Approach is unable to model the habitat conditions of individual channel units, such as pools or riffles. 
+The hydraulic data necessary to execute GIFT can be collected during one field visit that does not have to coincide with specific flow conditions. To calculate *WUA*, users must define their own HSCs. GIFT produces distributions of channel hydraulics at the reach scale. Currently, GIFT is unable to model the habitat conditions of individual channel units, such as pools or riffles. 
 
-The hydraulic simulator component of the Geomorphic Approach uses a reach-averaged channel cross section of bankfull geometry. Using the input data, an index of bankfull channel shape (*b*) is calculated that ranges from 0 (rectangular channel) to 1 (highly skewed channel). To simulate the hydraulics of flows below bankfull, the model iteratively drops the water level until the point of zero discharge. For each modelled water level, mean velocity and depth is calculated. 
+The hydraulic simulation component of GIFT uses a reach-averaged channel cross section of bankfull geometry. Using the input data, an index of bankfull channel shape (*b*) is calculated that ranges from 0 (rectangular channel) to 1 (highly skewed channel). To simulate the hydraulics of flows below bankfull, the model iteratively drops the water level until the point of zero discharge. For each modelled water level, mean velocity and depth is calculated. 
 
 Following the prediction of reach-averaged hydraulics, the next step is to apply statistical frequency distributions to represent reach-averaged variability. The resultant depth and velocity distributions can then be paired with user-specified habitat suitability curves to determine *WUA*. 
 
-The third component of the Geomorphic Approach is the application of the UBC Regime Model (UBCRM). This model can be used to evaluate how environmental pertubations, such as climate and land-use change, are likely to affect bankfull parameters. The predicted channel geometry can then be used with the hydraulic simulator and the statistical frequency distributions to estimate the subsequent changes to fish habitat due to various environmental perturbations (i.e. ‘what-if’ scenarios). The UBCRM may also be used to estimate input parameters if field observations are limited. 
+The third component of GIFT is the application of the UBC Regime Model (UBCRM). This model can be used to evaluate how environmental pertubations, such as climate and land-use change, are likely to affect bankfull parameters. The predicted channel geometry can then be used with the hydraulic simulator and the statistical frequency distributions to estimate the subsequent changes to fish habitat due to various environmental perturbations (i.e. ‘what-if’ scenarios). The UBCRM may also be used to estimate input parameters if field observations are limited. 
 
 <br>
 
-# Applying the Geomorphic Approach
+# Applying the GIFT
 
 <br>
 
 ### Field Considerations
 
-There are many ways the Geomorphic Approach could be implemented. Field programs should be designed around project objectives. This section is intended to provide considerations for designing a field program, it is not a step-by-step guide for collecting field data.
+There are many ways GIFT could be implemented. Field programs should be designed around project objectives. This section is intended to provide considerations for designing a field program, it is not a step-by-step guide for collecting field data.
 
-When planning a field trip to collect data to run the Geomorphic Approach, it is necessary to identify the study reach. Then, channel geometry can be characterized by collecting depth data along a series of transects. The location and the appropriate number of transects are dependent on factors such as desired accuracy, access, and time. A robust approach is to identify cross sections randomly within the reach, but that is not always practical. Another option is to characterize the study reach by channel units (mesohabitats), and then identify transects within those classifications using a stratified random approach. When collecting cross sections, be sure to note the estimated bankfull elevations on either side of the channel. 
+When planning a field trip to collect data to run GIFT, it is necessary to identify the study reach. Then, channel geometry can be characterized by collecting depth data along a series of transects. The location and the appropriate number of transects are dependent on factors such as desired accuracy, access, and time. A robust approach is to identify cross sections randomly within the reach, but that is not always practical. Another option is to characterize the study reach by channel units (mesohabitats), and then identify transects within those classifications using a stratified random approach. When collecting cross sections, be sure to note the estimated bankfull elevations on either side of the channel. 
 
-Another key data requirement to execute the Geomorphic Approach is a representative grain size distribution, which is used to evaluate channel roughness and estimate velocity. This can be conducted using a Wolman pebble count, analysis of photographs, or visual estimation. Because the field work does not need to coincide with any particular flow, these data are most easily collected during open-water, low flow conditions. Coordinating a field visit during low flows would also likely coincide with the safest conditions for wading.  
+Another key data requirement to execute GIFT is a representative grain size distribution, which is used to evaluate channel roughness and estimate velocity. This can be conducted using a Wolman pebble count, analysis of photographs, or visual estimation. Because the field work does not need to coincide with any particular flow, these data are most easily collected during open-water, low flow conditions. Coordinating a field visit during low flows would also likely coincide with the safest conditions for wading.  
 
 <br>
 
@@ -62,13 +61,13 @@ The channel dimensions are used to generate an index of channel shape, *b*. If o
 <br>
 
 ### Using the App
-One option for evaluating the hydraulic simulator and statistical distribution components of the Geomorphic Approach is to use the interactive [App](https://sgronsdahl.github.io/GeomorphicApproach/app.html). Input data can be interactively entered and reach-averaged hydraulics and *WUA* outputs can be visualized and downloaded. 
+One option for evaluating the hydraulic simulator and statistical distribution components of GIFT is to use the interactive [App](https://sgronsdahl.github.io/GIFT/app.html). Input data can be interactively entered and reach-averaged hydraulics and *WUA* outputs can be visualized and downloaded. 
 
 <br>
 
 ### Using the R Package
 
-For users familiar with R, the Geomorphic Approach is available as a package from GitHub. The below code snippet uses the 'devtools' package to install the package. Currently, there are two functions in the package, one to execute the hydraulic simulator and another to execute the statistical distributions and calculate *WUA*. The below code should be un-commented out where necessary to install the package for the first time. 
+For users familiar with R, GIFT is available as a package from GitHub. The below code snippet uses the 'devtools' package to install the package. Currently, there are two functions in the package, one to execute the hydraulic simulator and another to execute the statistical distributions and calculate *WUA*. The below code should be un-commented out where necessary to install the package for the first time. 
 
 ```{r, echo = T, message = F}
 
@@ -77,8 +76,8 @@ For users familiar with R, the Geomorphic Approach is available as a package fro
 # library(devtools)
 
 ## install and load package
-# install_github("SGronsdahl/GeomorphicApproach")
-library(GeomorphicApproach)
+# install_github("SGronsdahl/GIFT")
+# library(GIFT)
 
 ```
 
@@ -86,7 +85,7 @@ library(GeomorphicApproach)
 
 #### Executing the Hydraulic Simulator
 
-The first function in the Geomorphic Approach package is the 'AvgHydraulics' function that executes the hydraulic simulator and produces a data frame of outputs. The below code snippet provides an example of how to run the model. The following code snippets showcase the execution of the AvgHydraulics function. In this scenario, $d_{max}$ is not specified, so the function assumes  $b = (W_b / d_b)$
+The first function in GIFT package is the 'AvgHydraulics' function that executes the hydraulic simulator and produces a data frame of outputs. The below code snippet provides an example of how to run the model. The following code snippets showcase the execution of the AvgHydraulics function. In this scenario, $d_{max}$ is not specified, so the function assumes  $b = (W_b / d_b)$
 
 
 ```{r, echo = T, message = F}

@@ -1,6 +1,6 @@
-### Geomorphic Approach ###
+### Geomorphic Instream Flow Tool ###
 
-#' A function to execute the Geomorphic Approach hydraulic simulation for flows below bankfull.
+#' A function to execute the  GIFT hydraulic simulation for flows below bankfull.
 #'
 #' This function executes the hydraulic geometry simulator to evaluate reach-averaged depths and velocities
 #' generated at flows less than bankfull conditions.

@@ -1,7 +1,7 @@
 name: "Geomorphic Instream Flow Tool"
 output_dir: "."
 navbar:
-  title: "Geomorphic Instream Flow Too l"
+  title: "Geomorphic Instream Flow Tool"
   left:
     - text: "Home"
       href: index.html
