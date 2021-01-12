@@ -1,5 +1,5 @@
-Package: GeomorphicApproach
-Title: Geomorphic Approach for conducting instream flow assessments
+Package: GIFT
+Title: Geomorphic instream flow tool for conducting hydraulic-habitat modelling.
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Stefan",
@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "stefan.gronsdahl@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: This package runs code to execute the Geomorphic Approach.
+Description: This package runs code to execute GIFT
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
     pick a license
 Encoding: UTF-8
