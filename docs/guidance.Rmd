@@ -77,7 +77,7 @@ For users familiar with R, GIFT is available as a package from GitHub. The below
 
 ## install and load package
 # install_github("SGronsdahl/GIFT")
-# library(GIFT)
+ library(GIFT)
 
 ```
 
