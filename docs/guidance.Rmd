@@ -71,9 +71,14 @@ For users familiar with R, GIFT is available as a package from GitHub. The below
 
 ```{r, echo = T, message = F}
 
+# Note: the package requires that dplyr and zoo packages installed.
+# install.packages(dplyr)
+# install.packages(zoo)
 library(dplyr)
+library(zoo)
 
-## install and load devtools
+
+## install and load devtools to install GIFT from GitHub
 # install.packages(devtools)
 # library(devtools)
 

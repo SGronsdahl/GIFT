@@ -357,9 +357,14 @@ $(document).ready(function () {
 <div id="using-the-r-package" class="section level3">
 <h3>Using the R Package</h3>
 <p>For users familiar with R, GIFT is available as a package from GitHub. The below code snippet uses the ‘devtools’ package to install the package. Currently, there are two functions in the package, one to execute the hydraulic simulator and another to execute the statistical distributions and calculate <em>WUA</em>. The below code should be un-commented out where necessary to install the package for the first time.</p>
-<pre class="r"><code>library(dplyr)
+<pre class="r"><code># Note: the package requires that dplyr and zoo packages installed.
+# install.packages(dplyr)
+# install.packages(zoo)
+library(dplyr)
+library(zoo)
 
-## install and load devtools
+
+## install and load devtools to install GIFT from GitHub
 # install.packages(devtools)
 # library(devtools)
 
@@ -438,13 +443,8 @@ s_curve = read.csv(&quot;substrate_suit_ptolemy.csv&quot;)%&gt;% filter(species 
 ## 6 0.006 0.04696391 0.4989043 0.09413288 0.12775286</code></pre>
 <p><br></p>
 <p>Here is an example of the execution of the Habitat function using just depth and velocity.</p>
-<pre class="r"><code>habitat = Habitat(hydraulics = hydraulics, d_curve = d_curve, v_curve = v_curve, max_Q = 0.1)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;zoo&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     as.Date, as.Date.numeric</code></pre>
-<pre class="r"><code>head(habitat)</code></pre>
+<pre class="r"><code>habitat = Habitat(hydraulics = hydraulics, d_curve = d_curve, v_curve = v_curve, max_Q = 0.1)
+head(habitat)</code></pre>
 <pre><code>##       Q    d.suit    v.suit s.suit         w        WUA
 ## 1 0.001 0.2276549 0.2549141      1 0.2972807 0.01725193
 ## 2 0.002 0.2787464 0.3332904      1 0.3629916 0.03372319
@@ -458,12 +458,12 @@ s_curve = read.csv(&quot;substrate_suit_ptolemy.csv&quot;)%&gt;% filter(species 
                   v_curve = v_curve, s_curve = s_curve, gsd = gsd, max_Q = 1)
 head(habitat)</code></pre>
 <pre><code>##       Q    d.suit    v.suit s.suit         w         WUA
-## 1 0.001 0.2276549 0.2549141  0.564 0.2972807 0.009730086
-## 2 0.002 0.2787464 0.3332904  0.564 0.3629916 0.019019877
-## 3 0.003 0.3103864 0.3858780  0.564 0.4081224 0.027569075
-## 4 0.004 0.3350859 0.4293030  0.564 0.4435399 0.035985860
-## 5 0.005 0.3532596 0.4616608  0.564 0.4731803 0.043523387
-## 6 0.006 0.3697394 0.4877912  0.564 0.4989043 0.050748838</code></pre>
+## 1 0.001 0.2276549 0.2549141  0.569 0.2972807 0.009816346
+## 2 0.002 0.2787464 0.3332904  0.569 0.3629916 0.019188493
+## 3 0.003 0.3103864 0.3858780  0.569 0.4081224 0.027813481
+## 4 0.004 0.3350859 0.4293030  0.569 0.4435399 0.036304884
+## 5 0.005 0.3532596 0.4616608  0.569 0.4731803 0.043909232
+## 6 0.006 0.3697394 0.4877912  0.569 0.4989043 0.051198739</code></pre>
 <p><br></p>
 <p>The Habitat function outputs a streamflow - habitat curve to the working directory as well. This functionality can be overridden if ‘wua_output = FALSE’ is specified.</p>
 <p><img src="WUA_Q.jpeg" width="70%" style="display: block; margin: auto;" /></p>
