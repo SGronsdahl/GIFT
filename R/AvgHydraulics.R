@@ -233,7 +233,7 @@ AvgHydraulics <- function(S, wb, db, db_max = NULL, b_value = NULL, max_Q = 1,
   if(b > 0.7 ) {warning("Warning: b_value outside of recommended range")}
 
   # estimate max depth using b-value
-  dmax <- (1 + b) / (1 - b) * db
+  dmax <- (1 + (b / (1 - b))) * db
 
   # generate xs_corrdinates
   X <- c(0, b * wb, 0.99 * wb, wb)
