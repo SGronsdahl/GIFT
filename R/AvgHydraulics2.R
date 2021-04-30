@@ -19,7 +19,7 @@
 #' @return data frame of reach-averaged hydraulics
 #' AvgHydraulics()
 
-AvgHydraulics <- function(S, wb, db, db_max = NULL, b_value = NULL, max_Q = 1,
+AvgHydraulics2 <- function(S, wb, db, db_max = NULL, b_value = NULL, max_Q = 1,
                              D84, xs_output = TRUE) {
 
   # Frank - I know that loading packages within a function is bad practice, please
