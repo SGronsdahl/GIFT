@@ -11,7 +11,6 @@
 #' @param db reach averaged bankfull depth (m).
 #' @param db_max Defaults to NULL. reach averaged maximum bankfull depth (m).  Specifying db_max is preferred to calculate 'b'.
 #' @param b User-specified b-value. Defaults to NULL and calculated within model unless specified.
-#' @param max_Q maximum discharge (m3/s) to simualted WUA for.  Defaults to 1 m3/s.
 #' @param D84 grain size (mm)
 #' @param xs_output Defaults to TRUE. An expression specifying whether to produce a .csv and .jpg of the simulated channel cross section.
 #' @export
@@ -191,7 +190,7 @@ calcUi <- function(Ri, D84, S) {
   return(Ui)
 }
 
-AvgHydraulics <- function(S, wb, db, db_max = NULL, b_value = NULL, max_Q = 1,
+AvgHydraulics <- function(S, wb, db, db_max = NULL, b_value = NULL,
                             D84, xs_output = TRUE) {
 
   #####################################################
@@ -287,7 +286,7 @@ AvgHydraulics <- function(S, wb, db, db_max = NULL, b_value = NULL, max_Q = 1,
 
   # filter results
   mod_hyd <- data.frame(Q, Ai = Ai$y, Wi = Wi$y, di = di$y, Ui = Ui$y) %>%
-    filter(is.na(Ai) == FALSE) %>% filter(Q <= max_Q)
+    filter(is.na(Ai) == FALSE)
 
   #####################################################
   # Prepare graph of cross section
