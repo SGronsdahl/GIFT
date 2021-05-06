@@ -16,5 +16,5 @@ To access the source code for the UBC Regime Model, which can be applied alongsi
 
 
 ```{r, echo = F, message = T, out.width = '95%', fig.align='center'}
-knitr::include_graphics('river1.jpg') 
+knitr::include_graphics('river3.png') 
 ```

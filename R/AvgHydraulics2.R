@@ -170,10 +170,10 @@ AvgHydraulics2 <- function(S, wb, db, db_max = NULL, b_value = NULL, max_Q = 1,
          ylab = "Depth (m)",
          ylim = c((min(plot_y) * 1.2), 0), cex.lab = 0.8, cex.axis = 0.8,
     )
-    abline(a = (db * -1), 0, lty = 2, col = "grey")
-    legend("bottomleft", col = c("black", "grey"), bty = "n",
-           lty = c(1, 2), cex = 0.86,
-           legend = c("Channel cross section", "Average depth"))
+    #abline(a = (db * -1), 0, lty = 2, col = "grey")
+    legend("bottomleft", col = c("black"), bty = "n",
+           lty = c(1), cex = 0.86,
+           legend = c("Cumulative Depth Distribution"))
     dev.off()
   } else {
   }
