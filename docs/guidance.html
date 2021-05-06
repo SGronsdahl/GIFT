@@ -307,13 +307,13 @@ $(document).ready(function () {
 <h1>Introduction</h1>
 <p>This page provides a guide for the use of GIFT for conducting instream flow assessments. Generally, the intent of instream flow assessments is to quantify available fish habitat at different flow levels using a metric called weighted usable area (<em>WUA</em>). The results of instream flow assessments are often used to support water allocation and management decisions.</p>
 <p>There are two main components for determining the <em>WUA</em> of a stream: (1) hydraulic data to characterize the depth and velocity characteristics of the stream, and (2) a biological model that describe the relevant species’ preference for those hydraulic characteristics, known as habitat suitability curves (HSCs). Observations that characterize the substrate and cover characteristics and the associated fish preferences may also be used to calculate <em>WUA</em>.</p>
-<p>Instream flow assessments using conventional methods are time consuming and expensive to implement and they only represent static channel conditions that represent a snapshot in time. GIFT has been designed to address these limitations by improving the hydraulic components of instream flow assessments. It can be implemented using minimal field data, and requires significantly less data processing and computing time compared to conventional methods.</p>
+<p>Instream flow assessments using conventional methods are time consuming and expensive to implement and they only represent static channel conditions that represent a snapshot in time. GIFT has been designed to address these limitations by improving the hydraulic components of instream flow assessments. It can be implemented using minimal field data, and requires significantly less data processing and computing time compared to conventional methods. In addition, GIFT can be implemented alongside geomorphic regime models to evaluate dynamic channel conditions and fish habitat.</p>
 <p>GIFT has two distinct components:</p>
 <ol style="list-style-type: decimal">
 <li>A reach-averaged hydraulic simulation approach</li>
 <li>statistical distributions of depths and velocity that are used to calculate <em>WUA</em></li>
 </ol>
-<p>This guidance is focused on the implementation of the hydraulic simulator and statistical distribution components of GIFT. Readers who are interested in the theoretical underpinnings of the this approach are referred to McParland et al. (2016) for information on the hydraulic simulator, Saraeva and Hardy (2009) and Schweizer et al. (2007) for information on the statistical distributions, and Eaton et al. (2004) for information on the geomorphic regime model. An evaluation of GIFT in eight streams located in western Canada is also in progress. Once the findings of this evaluation become available they will be shared on this webiste. Please check out the References tab for more links to these studies.</p>
+<p>This guidance is focused on the implementation of the hydraulic simulator and statistical distribution components of GIFT. Readers who are interested in the theoretical underpinnings of the this approach are referred to McParland et al. (2016) for information on the hydraulic simulator, Saraeva and Hardy (2009) and Schweizer et al. (2007) for information on the statistical distributions, and Eaton et al. (2004) for information on a geomorphic regime model that can easily be implemented alongside GIFT. An evaluation of GIFT in eight streams located in western Canada is also in progress. Once the findings of this evaluation become available they will be shared on this webiste. Please check out the References tab for more links to these studies.</p>
 <p><br></p>
 <div id="model-overview" class="section level2">
 <h2>Model Overview</h2>
@@ -324,13 +324,14 @@ $(document).ready(function () {
 <p><br></p>
 </div>
 </div>
-<div id="applying-the-gift" class="section level1">
-<h1>Applying the GIFT</h1>
+<div id="applying-gift" class="section level1">
+<h1>Applying GIFT</h1>
 <p><br></p>
 <div id="field-considerations" class="section level3">
 <h3>Field Considerations</h3>
 <p>There are many ways GIFT could be implemented. Field programs should be designed around project objectives. This section is intended to provide considerations for designing a field program, it is not a step-by-step guide for collecting field data.</p>
-<p>When planning a field trip to collect data to run GIFT, it is necessary to identify the study reach. Then, channel geometry can be characterized by collecting depth data along a series of transects. The location and the appropriate number of transects are dependent on factors such as desired accuracy, access, and time. A robust approach is to identify cross sections randomly within the reach, but that is not always practical. Another option is to characterize the study reach by channel units (mesohabitats), and then identify transects within those classifications using a stratified random approach. When collecting cross sections, be sure to note the estimated bankfull elevations on either side of the channel.</p>
+<p>When planning a field trip to collect data to run GIFT, it is necessary to identify the study reach. Then, channel geometry can be characterized by collecting survey data along a series of transects. The location and the appropriate number of transects are dependent on factors such as desired accuracy, access, and time. Ideally, surveys of at least 10 channel cross sections would be conducted that demarcate the top of bank, bottom of bank, edge of vegetation, indicators of bankfull elevation, the water’s edge at the time of survey, and the thalweg location. Accurate measurements of channel gradient are also necessary. The data that are collected should be sufficient to faithfully reproduce the general cross-sectional shape of the study reach, but there is little to be gained by conducting a hyper-detailed survey of cross-sectional topography.</p>
+<p>A robust approach is to identify cross sections randomly within the reach, but that is not always practical. Another option is to characterize the study reach by channel units (mesohabitats), and then identify transects within those classifications using a stratified random approach. When collecting cross sections, be sure to note the estimated bankfull elevations on either side of the channel.</p>
 <p>Another key data requirement to execute GIFT is a representative grain size distribution, which is used to evaluate channel roughness and estimate velocity. This can be conducted using a Wolman pebble count, analysis of photographs, or visual estimation. Because the field work does not need to coincide with any particular flow, these data are most easily collected during open-water, low flow conditions. Coordinating a field visit during low flows would also likely coincide with the safest conditions for wading.</p>
 <p><br></p>
 </div>
@@ -356,7 +357,7 @@ $(document).ready(function () {
 </div>
 <div id="using-the-r-package" class="section level3">
 <h3>Using the R Package</h3>
-<p>For users familiar with R, GIFT is available as a package from GitHub. The below code snippet uses the ‘devtools’ package to install the package. Currently, there are two functions in the package, one to execute the hydraulic simulator and another to execute the statistical distributions and calculate <em>WUA</em>. The below code should be un-commented out where necessary to install the package for the first time.</p>
+<p>For users familiar with R, GIFT is available as a package from GitHub. The below code snippet uses the ‘devtools’ package to install the package. Currently, there are two functions in the package, one to execute the hydraulic simulator and another to execute the statistical distributions and calculate <em>WUA</em>. The below code should be un-commented (hash-tags at the start of each line removed) out where necessary to install the package for the first time.</p>
 <pre class="r"><code># Note: the package requires that dplyr and zoo packages installed.
 # install.packages(dplyr)
 # install.packages(zoo)
@@ -375,40 +376,36 @@ library(zoo)
 <div id="executing-the-hydraulic-simulator" class="section level4">
 <h4>Executing the Hydraulic Simulator</h4>
 <p>The first function in GIFT package is the ‘AvgHydraulics’ function that executes the hydraulic simulator and produces a data frame of outputs. The below code snippet provides an example of how to run the model. The following code snippets showcase the execution of the AvgHydraulics function. In this scenario, <span class="math inline">\(d_{max}\)</span> is not specified, so the function assumes <span class="math inline">\(b = (W_b / d_b)\)</span></p>
-<pre class="r"><code>hydraulics = AvgHydraulics(S = 0.01, wb = 10, db = 0.5, 
-                           max_Q = 0.1, D84 = 100)
+<pre class="r"><code>hydraulics = AvgHydraulics(S = 0.01, wb = 10, db = 0.5, D84 = 100)
 head(hydraulics)</code></pre>
 <pre><code>##       Q         Ai       Wi         di         Ui
-## 1 0.001 0.03625683 1.516901 0.02390076 0.02757710
-## 2 0.002 0.05395627 1.850492 0.02915690 0.03706367
-## 3 0.003 0.06809853 2.078908 0.03275590 0.04404992
-## 4 0.004 0.08034085 2.258076 0.03557892 0.04978612
-## 5 0.005 0.09133912 2.407678 0.03793610 0.05473889
-## 6 0.006 0.10143964 2.537302 0.03997850 0.05914482</code></pre>
+## 1 0.001 0.04809630 2.469268 0.01947684 0.02078792
+## 2 0.002 0.07151588 3.010765 0.02375331 0.02796553
+## 3 0.003 0.09024328 3.381748 0.02668452 0.03324022
+## 4 0.004 0.10648644 3.673706 0.02898549 0.03756106
+## 5 0.005 0.12094234 3.914475 0.03089580 0.04134046
+## 6 0.006 0.13439002 4.127162 0.03256184 0.04464409</code></pre>
 <p><br></p>
-<p>The idealized reach-cross section generated by this analysis is as follows: <img src="channel_xs_dmean.jpeg" width="70%" style="display: block; margin: auto;" /></p>
+<p>The cumulative depth distribution is generated by this analysis is as follows: <img src="channel_xs_dmean.jpeg" width="70%" style="display: block; margin: auto;" /></p>
 <p><br></p>
-<p>Here, the <span class="math inline">\(d_{max}\)</span> term is specificied within the AvgHydraulics function call, so the function assumes <span class="math inline">\(b = 1 - (d_b/d_{max})\)</span></p>
-<pre class="r"><code>hydraulics = AvgHydraulics(S = 0.01, wb = 10, db = 0.5, db_max = 1.25,
-                           max_Q = 0.1, D84 = 100)
+<p>Here, the <span class="math inline">\(d_{max}\)</span> term is specified within the AvgHydraulics function call, so the function assumes <span class="math inline">\(b = 1 - (d_b/d_{max})\)</span></p>
+<pre class="r"><code>hydraulics = AvgHydraulics(S = 0.01, wb = 10, db = 0.5, db_max = 0.75, D84 = 100)
 head(hydraulics)</code></pre>
-<pre><code>##       Q         Ai        Wi         di         Ui
-## 1 0.001 0.01667512 0.2972807 0.05609071 0.05996488
-## 2 0.002 0.02486225 0.3629916 0.06848898 0.08043068
-## 3 0.003 0.03142717 0.4081224 0.07700423 0.09545860
-## 4 0.004 0.03711957 0.4435399 0.08368678 0.10775030
-## 5 0.005 0.04224627 0.4731803 0.08927929 0.11834497
-## 6 0.006 0.04696391 0.4989043 0.09413288 0.12775286</code></pre>
+<pre><code>##       Q         Ai       Wi         di         Ui
+## 1 0.001 0.03354854 1.330329 0.02521728 0.02980415
+## 2 0.002 0.05007830 1.626481 0.03078886 0.03993549
+## 3 0.003 0.06321439 1.827366 0.03459238 0.04745422
+## 4 0.004 0.07463971 1.985960 0.03758297 0.05358751
+## 5 0.005 0.08468275 2.114073 0.04005611 0.05904123
+## 6 0.006 0.09419307 2.230608 0.04222676 0.06369544</code></pre>
 <p><br></p>
-<p>The idealized reach-cross section generated by this analysis is as follows: <img src="channel_xs_dmax.jpeg" width="70%" style="display: block; margin: auto;" /></p>
+<p>The cumulative depth distribution is generated by this analysis is as follows: <img src="channel_xs_dmax.jpeg" width="70%" style="display: block; margin: auto;" /></p>
 <p><br></p>
 <p>Users may also specify a b-value, thereby over-riding either formula.</p>
-<pre class="r"><code>hydraulics = AvgHydraulics(S = 0.01, wb = 10, db = 0.5, db_max = 1.25,
-                           max_Q = 0.1, D84 = 100, b_value = 0.2)</code></pre>
+<pre class="r"><code>hydraulics = AvgHydraulics(S = 0.01, wb = 10, db = 0.5, db_max = 0.75, D84 = 100, b_value = 0.2)</code></pre>
 <p><br></p>
-<p>This function outputs a figure of the cross-section of the idealized reach and a .csv file of the simluated reach-averaged hydraulics. This feature may be turned off by specifying xs_ouput = FALSE, like so:</p>
-<pre class="r"><code>hydraulics = AvgHydraulics(S = 0.01, wb = 10, db = 0.5, db_max = 1.25,
-                           max_Q = 1, D84 = 100, xs_output = FALSE)</code></pre>
+<p>This function outputs a figure of the cumulative depth distribution and a .csv file of the simluated reach-averaged hydraulics. This feature may be turned off by specifying xs_ouput = FALSE, like so:</p>
+<pre class="r"><code>hydraulics = AvgHydraulics(S = 0.01, wb = 10, db = 0.5, db_max = 0.75, D84 = 100, xs_output = FALSE)</code></pre>
 <p><br></p>
 </div>
 <div id="execute-the-habitat-function" class="section level4">
@@ -416,7 +413,7 @@ head(hydraulics)</code></pre>
 <p>The Habitat function applies statistical frequency distribution to the mean depths and velocities that are output by the hydraulic simulator function. These disitributions are then paired with user-specified habitat suitability curves to generate reach-averaged depth and velocity suitabilities. To estimate the <em>WUA</em> of the stream reach, these suitabilities are multiplied with the modelled stream width to develop a <em>WUA</em> value in m<sup>2</sup> / m.</p>
 <p>The input parameters for the Habitat function are as follows:</p>
 <ul>
-<li><strong>hydrualics</strong>, a data frame of outputs generated by the AvgHydraulics function. This field is mandatory.</li>
+<li><strong>hydraulics</strong>, a data frame of outputs generated by the AvgHydraulics function. This field is mandatory.</li>
 <li><strong>d_curve</strong>, depth suitability curve. This should be a dataframe with two columns: ‘depth’ (m) and ‘suit’ (dimensionless suitability from 0-1). This field is mandatory.</li>
 <li><strong>v_curve</strong>, velocity suitability curve. This should be a dataframe with two columns: ‘velocity’ (m/s) and ‘suit’ (dimensionless suitability from 0-1). This field is mandatory.</li>
 <li><strong>s_curve</strong>, substrate suitability curve. This is a dataframe of substrate suitabilities with three columns: ‘lower’ (mm) and ‘upper’ (mm) of grain size classes and ‘suit’ (dimensionless suitability from 0-1). This field is optional.</li>
@@ -428,42 +425,42 @@ v_curve = read.csv(&quot;velocity_suit_ptolemy.csv&quot;)%&gt;% filter(species =
 s_curve = read.csv(&quot;substrate_suit_ptolemy.csv&quot;)%&gt;% filter(species == &quot;rainbow&quot; &amp; life_stage == &quot;parr&quot;)</code></pre>
 <p><img src="guidance_files/figure-html/unnamed-chunk-9-1.png" width="1440" /></p>
 <p><br></p>
-<p>The grain size distribution should be specified as a vector of numerical observations. For this example, a simulated disribution will be generated:</p>
+<p>The grain size distribution should be specified as a vector of numerical observations, such as the observations of a Wolman Pebble Count. For illustration purposes only, we will use a simulated disribution will be generated:</p>
 <pre class="r"><code>gsd = rnorm(100, mean = 75, sd = 25)</code></pre>
 <p><img src="guidance_files/figure-html/unnamed-chunk-11-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><br></p>
 <p>And to refresh our memory, here is what the hydraulics data looks like that we generated earlier.</p>
 <pre class="r"><code>head(hydraulics)</code></pre>
-<pre><code>##       Q         Ai        Wi         di         Ui
-## 1 0.001 0.01667512 0.2972807 0.05609071 0.05996488
-## 2 0.002 0.02486225 0.3629916 0.06848898 0.08043068
-## 3 0.003 0.03142717 0.4081224 0.07700423 0.09545860
-## 4 0.004 0.03711957 0.4435399 0.08368678 0.10775030
-## 5 0.005 0.04224627 0.4731803 0.08927929 0.11834497
-## 6 0.006 0.04696391 0.4989043 0.09413288 0.12775286</code></pre>
+<pre><code>##       Q         Ai       Wi         di         Ui
+## 1 0.001 0.03354854 1.330329 0.02521728 0.02980415
+## 2 0.002 0.05007830 1.626481 0.03078886 0.03993549
+## 3 0.003 0.06321439 1.827366 0.03459238 0.04745422
+## 4 0.004 0.07463971 1.985960 0.03758297 0.05358751
+## 5 0.005 0.08468275 2.114073 0.04005611 0.05904123
+## 6 0.006 0.09419307 2.230608 0.04222676 0.06369544</code></pre>
 <p><br></p>
 <p>Here is an example of the execution of the Habitat function using just depth and velocity.</p>
-<pre class="r"><code>habitat = Habitat(hydraulics = hydraulics, d_curve = d_curve, v_curve = v_curve, max_Q = 0.1)
+<pre class="r"><code>habitat = Habitat(hydraulics = hydraulics, d_curve = d_curve, v_curve = v_curve,)
 head(habitat)</code></pre>
-<pre><code>##       Q    d.suit    v.suit s.suit         w        WUA
-## 1 0.001 0.2276549 0.2549141      1 0.2972807 0.01725193
-## 2 0.002 0.2787464 0.3332904      1 0.3629916 0.03372319
-## 3 0.003 0.3103864 0.3858780      1 0.4081224 0.04888134
-## 4 0.004 0.3350859 0.4293030      1 0.4435399 0.06380472
-## 5 0.005 0.3532596 0.4616608      1 0.4731803 0.07716913
-## 6 0.006 0.3697394 0.4877912      1 0.4989043 0.08998021</code></pre>
+<pre><code>##       Q     d.suit    v.suit s.suit        w        WUA
+## 1 0.001 0.07580115 0.1293719      1 1.330329 0.01304593
+## 2 0.002 0.10185502 0.1765005      1 1.626481 0.02923999
+## 3 0.003 0.11985860 0.2084220      1 1.827366 0.04564974
+## 4 0.004 0.13483312 0.2351875      1 1.985960 0.06297691
+## 5 0.005 0.14586234 0.2566764      1 2.114073 0.07914966
+## 6 0.006 0.15651724 0.2779703      1 2.230608 0.09704739</code></pre>
 <p><br></p>
 <p>It is also possible to define the grain size distribution and substrate suitability curves to include a reach-averaged substrate suitability. Both grain size distribution and substrate suitability curve must be specified to generate a substrate suitability value for the reach.</p>
 <pre class="r"><code>habitat = Habitat(hydraulics = hydraulics, d_curve = d_curve, 
-                  v_curve = v_curve, s_curve = s_curve, gsd = gsd, max_Q = 1)
+                  v_curve = v_curve, s_curve = s_curve, gsd = gsd)
 head(habitat)</code></pre>
-<pre><code>##       Q    d.suit    v.suit s.suit         w         WUA
-## 1 0.001 0.2276549 0.2549141  0.569 0.2972807 0.009816346
-## 2 0.002 0.2787464 0.3332904  0.569 0.3629916 0.019188493
-## 3 0.003 0.3103864 0.3858780  0.569 0.4081224 0.027813481
-## 4 0.004 0.3350859 0.4293030  0.569 0.4435399 0.036304884
-## 5 0.005 0.3532596 0.4616608  0.569 0.4731803 0.043909232
-## 6 0.006 0.3697394 0.4877912  0.569 0.4989043 0.051198739</code></pre>
+<pre><code>##       Q     d.suit    v.suit s.suit        w        WUA
+## 1 0.001 0.07580115 0.1293719  0.572 1.330329 0.00746227
+## 2 0.002 0.10185502 0.1765005  0.572 1.626481 0.01672528
+## 3 0.003 0.11985860 0.2084220  0.572 1.827366 0.02611165
+## 4 0.004 0.13483312 0.2351875  0.572 1.985960 0.03602279
+## 5 0.005 0.14586234 0.2566764  0.572 2.114073 0.04527360
+## 6 0.006 0.15651724 0.2779703  0.572 2.230608 0.05551111</code></pre>
 <p><br></p>
 <p>The Habitat function outputs a streamflow - habitat curve to the working directory as well. This functionality can be overridden if ‘wua_output = FALSE’ is specified.</p>
 <p><img src="WUA_Q.jpeg" width="70%" style="display: block; margin: auto;" /></p>

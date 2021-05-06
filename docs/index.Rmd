@@ -12,13 +12,19 @@ knitr::include_graphics('HCTFLogo.jpg')
 ```
 
 <br>
+
+To access an R-Shiny App to execute GIFT, click [here](https://sgronsdahl.shinyapps.io/GIFT/).
+
+<br>
+
+For questions or enquiries regarding GIFT, contact Stefan Gronsdahl at: stefan.gronsdahl (at) pecg.ca
+
 <br>
 
 All of the code presented on this page is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. The code is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 <br>
 
-For questions or enquiries regarding GIFT, contact Stefan Gronsdahl at: stefan.gronsdahl (at) pecg.ca
 
 <br>
 

@@ -7,8 +7,6 @@ navbar:
       href: index.html
     - text: "Guidance"
       href: guidance.html
-    - text: "App"
-      href: app.html
     - text: "Source Code"
       href: rawcode.html
     - text: "References"
