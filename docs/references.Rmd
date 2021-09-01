@@ -4,6 +4,8 @@
 
 Eaton, B., Church, M., & Millar, R. (2004). Rational regime model of alluvial channel morphology and response. Earth Surface Processes and Landforms, 29(4): 511-529. [https://doi.org/10.1002/esp.1062](https://doi.org/10.1002/esp.1062) 
 
+Gronsdahl, S., McParland, D., Eaton, B., Moore, R.D., & Rosenfeld, J. (2021). Evaluation of a geomorphic instream flow tool for conducting hydraulic-habitat modelling. River Research and Applications, [https://doi.org/10.1002/rra.3847](https://doi.org/10.1002/rra.3847)
+
 McParland, D., Eaton, B., & Rosenfeld, J. (2016). At-a-station hydraulic geometry simulator. River Research and Applications 32, 399-410. [https://doi.org/10.1002/rra.2851](https://doi.org/10.1002/rra.2851)
 
 Saraeva, E. & Hardy, T.B. (2009). Prediction of fisheries physical habitat values based on hydraulic geometry and frequency distributions of depth and velocity. International Journal of River Basin Management, 7(1): 31-41. [https://doi.org/10.1080/15715124.2009.9635368](https://doi.org/10.1080/15715124.2009.9635368)

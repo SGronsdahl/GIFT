@@ -1,5 +1,12 @@
 
 <center>
+
+<br>
+
+```{r, echo = F, message = T, out.width = '30%', fig.align='center'}
+knitr::include_graphics('Palmer_Logo.jpg') 
+```
+
 <br>
 <br>
 

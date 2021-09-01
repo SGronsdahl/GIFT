@@ -14,7 +14,7 @@ GIFT has two distinct components:
 1. A reach-averaged hydraulic simulation approach 
 2. statistical distributions of depths and velocity that are used to calculate *WUA*
 
-This guidance is focused on the implementation of the hydraulic simulator and statistical distribution components of GIFT. Readers who are interested in the theoretical underpinnings of the this approach are referred to McParland et al. (2016) for information on the hydraulic simulator, Saraeva and Hardy (2009) and Schweizer et al. (2007) for information on the statistical distributions, and Eaton et al. (2004) for information on a geomorphic regime model that can easily be implemented alongside GIFT. An evaluation of GIFT in eight streams located in western Canada is also in progress. Once the findings of this evaluation become available they will be shared on this webiste. Please check out the References tab for more links to these studies. 
+This guidance is focused on the implementation of the hydraulic simulator and statistical distribution components of GIFT. Readers who are interested in the theoretical underpinnings of the this approach are referred to Gronsdahl et al. (2021) for an evaluation of GIFT in eight streams located in western Canada. In addition, McParland et al. (2016) for information on the hydraulic simulator, Saraeva and Hardy (2009) and Schweizer et al. (2007) for information on the statistical distributions, and Eaton et al. (2004) for information on a geomorphic regime model that can easily be implemented alongside GIFT. Please check out the References tab for more links to these studies. 
  
 <br>
 

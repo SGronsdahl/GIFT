@@ -310,7 +310,7 @@ $(document).ready(function () {
 <li>A reach-averaged hydraulic simulation approach</li>
 <li>statistical distributions of depths and velocity that are used to calculate <em>WUA</em></li>
 </ol>
-<p>This guidance is focused on the implementation of the hydraulic simulator and statistical distribution components of GIFT. Readers who are interested in the theoretical underpinnings of the this approach are referred to McParland et al. (2016) for information on the hydraulic simulator, Saraeva and Hardy (2009) and Schweizer et al. (2007) for information on the statistical distributions, and Eaton et al. (2004) for information on a geomorphic regime model that can easily be implemented alongside GIFT. An evaluation of GIFT in eight streams located in western Canada is also in progress. Once the findings of this evaluation become available they will be shared on this webiste. Please check out the References tab for more links to these studies.</p>
+<p>This guidance is focused on the implementation of the hydraulic simulator and statistical distribution components of GIFT. Readers who are interested in the theoretical underpinnings of the this approach are referred to Gronsdahl et al. (2021) for an evaluation of GIFT in eight streams located in western Canada. In addition, McParland et al. (2016) for information on the hydraulic simulator, Saraeva and Hardy (2009) and Schweizer et al. (2007) for information on the statistical distributions, and Eaton et al. (2004) for information on a geomorphic regime model that can easily be implemented alongside GIFT. Please check out the References tab for more links to these studies.</p>
 <p><br></p>
 <div id="model-overview" class="section level2">
 <h2>Model Overview</h2>
@@ -452,12 +452,12 @@ head(habitat)</code></pre>
                   v_curve = v_curve, s_curve = s_curve, gsd = gsd)
 head(habitat)</code></pre>
 <pre><code>##       Q     d.suit    v.suit s.suit        w         WUA
-## 1 0.001 0.07580115 0.1293719  0.564 1.330329 0.007357902
-## 2 0.002 0.10185502 0.1765005  0.564 1.626481 0.016491356
-## 3 0.003 0.11985860 0.2084220  0.564 1.827366 0.025746453
-## 4 0.004 0.13483312 0.2351875  0.564 1.985960 0.035518978
-## 5 0.005 0.14586234 0.2566764  0.564 2.114073 0.044640406
-## 6 0.006 0.15651724 0.2779703  0.564 2.230608 0.054734728</code></pre>
+## 1 0.001 0.07580115 0.1293719  0.571 1.330329 0.007449224
+## 2 0.002 0.10185502 0.1765005  0.571 1.626481 0.016696036
+## 3 0.003 0.11985860 0.2084220  0.571 1.827366 0.026066001
+## 4 0.004 0.13483312 0.2351875  0.571 1.985960 0.035959816
+## 5 0.005 0.14586234 0.2566764  0.571 2.114073 0.045194453
+## 6 0.006 0.15651724 0.2779703  0.571 2.230608 0.055414060</code></pre>
 <p><br></p>
 <p>The Habitat function outputs a streamflow - habitat curve to the working directory as well. This functionality can be overridden if ‘wua_output = FALSE’ is specified.</p>
 <p><img src="WUA_Q.jpeg" width="70%" style="display: block; margin: auto;" /></p>
