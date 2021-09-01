@@ -3,8 +3,9 @@
 
 <br>
 
+
 ```{r, echo = F, message = T, out.width = '30%', fig.align='center'}
-knitr::include_graphics('Palmer_Logo.jpg') 
+knitr::include_graphics('PalmerLogo.png') 
 ```
 
 <br>
@@ -20,11 +21,7 @@ knitr::include_graphics('HCTFLogo.jpg')
 
 <br>
 
-To access an R-Shiny App to execute GIFT, click [here](https://sgronsdahl.shinyapps.io/GIFT/).
-
-<br>
-
-For questions or enquiries regarding GIFT, contact Stefan Gronsdahl at: stefan.gronsdahl (at) pecg.ca
+To access an R-Shiny App to execute GIFT, click [here](https://sgronsdahl.shinyapps.io/GIFT/). For questions or enquiries regarding GIFT, contact Stefan Gronsdahl at: stefan.gronsdahl (at) pecg.ca
 
 <br>
 
